@@ -9,6 +9,6 @@ class CalenderController extends Controller
 {
     public function showCalender()
     {
-        return view('schedule.show_calender');
+        return view('schedule.stopwatch');
     }
 }

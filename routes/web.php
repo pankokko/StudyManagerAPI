@@ -22,5 +22,5 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::name('schedule.')->prefix('schedule')->group(function () {
-    Route::get('calender', 'CalenderController@showCalender')->name('show_calender');
+    Route::get('stopwatch', 'CalenderController@showCalender')->name('stopwatch');
 });

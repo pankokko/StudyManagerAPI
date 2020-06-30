@@ -1915,15 +1915,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      users: []
+    };
+  },
   components: {
     StopWatch: _StopWatch_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
-  data: function data() {
-    return {
-      messsage: "hello world"
-    };
+  mounted: function mounted() {
+    var _this = this;
+
+    axios.get('/users_data').then(function (response) {
+      return _this.users = response.data;
+    });
   }
 });
 
@@ -37570,7 +37578,18 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [_c("StopWatch")], 1)
+  return _c(
+    "div",
+    { staticClass: "container" },
+    [
+      _c("StopWatch"),
+      _vm._v(" "),
+      _vm._l(_vm.users, function(user) {
+        return _c("p", [_vm._v(_vm._s(user))])
+      })
+    ],
+    2
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -49810,7 +49829,7 @@ new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   render: function render(h) {
     return h(_components_App_vue__WEBPACK_IMPORTED_MODULE_1__["default"]);
   }
-}).$mount('#app');
+}).$mount('#app2');
 
 /***/ }),
 

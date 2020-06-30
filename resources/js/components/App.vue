@@ -1,6 +1,7 @@
 <template>
     <div class="container">
         <StopWatch></StopWatch>
+        <p v-for="user in users">{{user}}</p>
     </div>
 </template>
 
@@ -9,14 +10,18 @@
     import StopWatch  from "./StopWatch.vue";
 
     export default {
+        data() {
+            return {
+                users: []
+            }
+        },
         components: {
             StopWatch,
         },
-        data: function() {
-            return  {
-                messsage: "hello world",
-            }
+        mounted() {
+            axios.get('/users_data').then(response => this.users = response.data);
         },
+
     }
 
 </script>
