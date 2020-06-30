@@ -17,6 +17,8 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
+            $table->string('weight')->nullable()->comment('体重');
+            $table->string('height')->nullable()->commnet('身長');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
