@@ -8,7 +8,6 @@
 <script>
 
     import StopWatch  from "./StopWatch.vue";
-    import MeditationChart from "./MeditationChart.vue";
 
     export default {
         data() {
@@ -18,7 +17,6 @@
         },
         components: {
             StopWatch,
-            MeditationChart,
         },
         mounted() {
             axios.get('/users_data').then(response => this.users = response.data);
