@@ -1909,7 +1909,6 @@ module.exports = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _StopWatch_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./StopWatch.vue */ "./resources/js/components/StopWatch.vue");
-/* harmony import */ var _MeditationChart_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MeditationChart.vue */ "./resources/js/components/MeditationChart.vue");
 //
 //
 //
@@ -1917,7 +1916,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -1926,8 +1924,7 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   components: {
-    StopWatch: _StopWatch_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
-    MeditationChart: _MeditationChart_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+    StopWatch: _StopWatch_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   mounted: function mounted() {
     var _this = this;
@@ -87568,11 +87565,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_App_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/App.vue */ "./resources/js/components/App.vue");
 /* harmony import */ var _components_Chart_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Chart.vue */ "./resources/js/components/Chart.vue");
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js"); // const files = require.context('./', true, /\.vue$/i)
@@ -87590,7 +87582,13 @@ new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   render: function render(h) {
     return h(_components_Chart_vue__WEBPACK_IMPORTED_MODULE_2__["default"]);
   }
-}).$mount('#chart');
+}).$mount('#app2');
+var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
+  el: '#app',
+  components: {
+    Chart: _components_Chart_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+  }
+});
 
 /***/ }),
 
