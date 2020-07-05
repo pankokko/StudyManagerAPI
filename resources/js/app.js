@@ -6,22 +6,26 @@ window.Vue = require('vue');
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 import Vue from 'vue'
-import App from './components/App.vue'
-import Chart from './components/Chart.vue'
+import MeditationSet from "./components/MeditationSet";
+import StopWatch from "./components/StopWatch";
+import TodaysRecord from "./components/TodaysRecord";
 
-new Vue({
-    render: h => h(App),
 
-}).$mount('#app2')
 
-new Vue({
-    render: h => h(Chart),
+Vue.component('stop-watch', require('./components/StopWatch.vue').default);
 
-}).$mount('#app2')
+
+// new Vue({
+//     render: h => h(App),
+//
+// }).$mount('#Meditation')
+//
 
 const app = new Vue({
     el: '#app',
     components: {
-        Chart,
-    },
+        StopWatch,
+        MeditationSet,
+        TodaysRecord,
+    }
 });

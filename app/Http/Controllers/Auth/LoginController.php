@@ -18,7 +18,7 @@ class LoginController extends Controller
     | to conveniently provide its functionality to your applications.
     |
     */
-    const HOME = "user/show_mypage";
+//    const HOME = "user/show_mypage";
     use AuthenticatesUsers;
 
     /**
@@ -26,7 +26,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = self::HOME;
+    protected $redirectTo = RouteServiceProvider::HOME;
 
     /**
      * Create a new controller instance.
@@ -37,4 +37,5 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
 }

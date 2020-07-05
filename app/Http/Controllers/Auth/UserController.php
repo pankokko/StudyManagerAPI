@@ -5,15 +5,20 @@ namespace App\Http\Controllers\Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Service\UserService;
+use App\Service\MeditationService;
+use App\Models\User;
 
 class UserController extends Controller
 {
     protected $userService;
+    protected $meditationService;
     protected $userId;
-    public function __construct(UserService $userService)
+
+    public function __construct(UserService $userService, MeditationService $meditationService)
     {
         $this->userId = auth()->guard('web')->id();
         $this->userService = $userService;
+        $this->meditationService = $meditationService;
     }
 
     public function showRegisterForm()
@@ -42,8 +47,11 @@ class UserController extends Controller
     {
         $userId = Auth()->guard('web')->id();
         $user = $this->userService->getUserinfo($userId);
-        return view('user.mypage_meditation', compact('user'));
 
+        $meditations =  $this->meditationService->getMeditationsById($userId);
+        $meditations = json_encode($meditations);
+        return view('user.mypage_meditation', compact('user','meditations'));
 
     }
+
 }
