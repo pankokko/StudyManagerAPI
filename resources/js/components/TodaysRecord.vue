@@ -1,8 +1,8 @@
 <template>
-    <div>
+    <div class="container">
         <table class="table table-bordered">
             <thead>
-            <tr>
+            <tr class="text-center">
                 <th scope="col">日付</th>
                 <th scope="col">瞑想時間</th>
             </tr>

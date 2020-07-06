@@ -16,16 +16,6 @@ class MeditationController extends Controller
         $this->meditationService = $meditationService;
     }
 
-//    public function getMeditationRecord()
-//    {
-//        $userId = auth()->guard('web')->id();
-//
-//        $meditations =  $this->meditationService->getMeditationsById($userId);
-//        $meditations = json_encode($meditations);
-//
-//        return $meditations;
-//    }
-
     public function saveRecord(Request $request)
     {
         $userId = auth()->guard('web')->id();
@@ -39,6 +29,7 @@ class MeditationController extends Controller
         ];
 
         $meditation = $this->meditationService->storeMeditationData($attributes);
+
         $meditation = json_encode($meditation);
         return [$meditation];
     }

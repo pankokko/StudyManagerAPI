@@ -1,17 +1,22 @@
 <template>
-    <div>
-        {{checkHours | zeroPadding}}：{{checkMinutes | zeroPadding}}：{{checkSeconds | zeroPadding}}：{{checkMiliSeconds |
-        showMiliseconds}}
-        <button @click="start">スタート</button>
-        <button @click="stop">ストップ</button>
-        <button @click="reset">リセット</button>
-        <button @click="sendData" type="submit">Send</button>
-    </div>
+        <div class="card text-center  pb-3 pr-3 pl-3 mb-3">
+            <div class="card-header">瞑想タイマー</div>
+            <p class="text-center h3 font-weight-bold">
+                {{checkHours | zeroPadding}}：{{checkMinutes | zeroPadding}}：{{checkSeconds |
+                zeroPadding}}：{{checkMiliSeconds |
+                showMiliseconds}}
+            </p>
+            <div>
+                <button class="btn btn-info" @click="start">スタート</button>
+                <button class="btn btn-danger" @click="stop">ストップ</button>
+                <button class="btn btn-warning" @click="reset">リセット</button>
+                <button class="btn btn-success" @click="sendData" type="submit">保存</button>
+            </div>
+        </div>
 </template>
 
+
 <script>
-
-
     export default {
         data: function () {
             return {
@@ -95,6 +100,4 @@
             },
         }
     }
-
-
 </script>

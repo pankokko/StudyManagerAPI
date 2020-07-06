@@ -2006,6 +2006,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -75386,26 +75393,47 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _vm._v(
-      "\n    " +
-        _vm._s(_vm._f("zeroPadding")(_vm.checkHours)) +
-        "：" +
-        _vm._s(_vm._f("zeroPadding")(_vm.checkMinutes)) +
-        "：" +
-        _vm._s(_vm._f("zeroPadding")(_vm.checkSeconds)) +
-        "：" +
-        _vm._s(_vm._f("showMiliseconds")(_vm.checkMiliSeconds)) +
-        "\n    "
-    ),
-    _c("button", { on: { click: _vm.start } }, [_vm._v("スタート")]),
+  return _c("div", { staticClass: "card text-center  pb-3 pr-3 pl-3 mb-3" }, [
+    _c("div", { staticClass: "card-header" }, [_vm._v("瞑想タイマー")]),
     _vm._v(" "),
-    _c("button", { on: { click: _vm.stop } }, [_vm._v("ストップ")]),
+    _c("p", { staticClass: "text-center h3 font-weight-bold" }, [
+      _vm._v(
+        "\n        " +
+          _vm._s(_vm._f("zeroPadding")(_vm.checkHours)) +
+          "：" +
+          _vm._s(_vm._f("zeroPadding")(_vm.checkMinutes)) +
+          "：" +
+          _vm._s(_vm._f("zeroPadding")(_vm.checkSeconds)) +
+          "：" +
+          _vm._s(_vm._f("showMiliseconds")(_vm.checkMiliSeconds)) +
+          "\n    "
+      )
+    ]),
     _vm._v(" "),
-    _c("button", { on: { click: _vm.reset } }, [_vm._v("リセット")]),
-    _vm._v(" "),
-    _c("button", { attrs: { type: "submit" }, on: { click: _vm.sendData } }, [
-      _vm._v("Send")
+    _c("div", [
+      _c("button", { staticClass: "btn btn-info", on: { click: _vm.start } }, [
+        _vm._v("スタート")
+      ]),
+      _vm._v(" "),
+      _c("button", { staticClass: "btn btn-danger", on: { click: _vm.stop } }, [
+        _vm._v("ストップ")
+      ]),
+      _vm._v(" "),
+      _c(
+        "button",
+        { staticClass: "btn btn-warning", on: { click: _vm.reset } },
+        [_vm._v("リセット")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-success",
+          attrs: { type: "submit" },
+          on: { click: _vm.sendData }
+        },
+        [_vm._v("保存")]
+      )
     ])
   ])
 }
@@ -75431,7 +75459,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
+  return _c("div", { staticClass: "container" }, [
     _c("table", { staticClass: "table table-bordered" }, [
       _vm._m(0),
       _vm._v(" "),
@@ -75462,7 +75490,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("thead", [
-      _c("tr", [
+      _c("tr", { staticClass: "text-center" }, [
         _c("th", { attrs: { scope: "col" } }, [_vm._v("日付")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("瞑想時間")])
