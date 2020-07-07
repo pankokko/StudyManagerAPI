@@ -47,10 +47,10 @@ class UserController extends Controller
     {
         $userId = Auth()->guard('web')->id();
         $user = $this->userService->getUserinfo($userId);
-        [$meditations, $meditationSum] = $this->meditationService->getMeditationsById($userId);
+        [$meditations, $meditationSum, $weekMeditationSum] = $this->meditationService->getMeditationsById($userId);
 
 
-        return view('user.mypage_meditation', compact('user', 'meditationSum', 'meditations'));
+        return view('user.mypage_meditation', compact('user', 'meditationSum', 'weekMeditationSum', 'meditations'));
 
     }
 

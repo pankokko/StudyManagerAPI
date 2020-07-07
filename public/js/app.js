@@ -2028,7 +2028,10 @@ __webpack_require__.r(__webpack_exports__);
       diffTime: 0,
       //スタートとストップ押した時の差分
       flag: false,
-      meditation_time: 0
+      meditation_time: 0,
+      validationMessages: {
+        nullValue: ""
+      }
     };
   },
   filters: {
@@ -2078,6 +2081,10 @@ __webpack_require__.r(__webpack_exports__);
     sendData: function sendData() {
       var _this = this;
 
+      if (this.checkMinutes === 0) {
+        return this.validationMessages.nullValue = "瞑想時間が0分です";
+      }
+
       var time = {
         'meditation_time': this.checkMinutes
       };
@@ -2090,7 +2097,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     appendData: function appendData(Value) {
-      console.log('データを送信');
+      console.log(this.checkMinutes);
       this.$emit('append', Value);
     }
   },
@@ -75434,6 +75441,10 @@ var render = function() {
         },
         [_vm._v("保存")]
       )
+    ]),
+    _vm._v(" "),
+    _c("p", { staticClass: "text-danger h3" }, [
+      _vm._v(_vm._s(_vm.validationMessages.nullValue))
     ])
   ])
 }

@@ -12,9 +12,9 @@
                 <button class="btn btn-warning" @click="reset">リセット</button>
                 <button class="btn btn-success" @click="sendData" type="submit">保存</button>
             </div>
+            <p class="text-danger h3">{{validationMessages.nullValue}}</p>
         </div>
 </template>
-
 
 <script>
     export default {
@@ -30,6 +30,9 @@
                 diffTime: 0, //スタートとストップ押した時の差分
                 flag: false,
                 meditation_time: 0,
+                validationMessages: {
+                    nullValue: "",
+                    },
             }
         },
         filters: {
@@ -70,6 +73,11 @@
                 this.startTime = this.diffTime = 0;
             },
             sendData() {
+
+                if (this.checkMinutes === 0) {
+                    return this.validationMessages.nullValue = "瞑想時間が0分です"
+                }
+
                 var time = {
                     'meditation_time': this.checkMinutes,
                 }
@@ -81,7 +89,7 @@
                 });
             },
             appendData(Value) {
-                console.log('データを送信');
+                console.log(this.checkMinutes);
                 this.$emit('append', Value);
             }
         },
