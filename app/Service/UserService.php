@@ -11,6 +11,11 @@ use Illuminate\Support\Facades\DB;
 class UserService
 {
 
+    public function getUserInfo($userId)
+    {
+        return User::find($userId);
+    }
+
     public function storePersonalData(array $data)
     {
         $user = User::find(Auth::id());

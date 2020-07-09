@@ -1,11 +1,4 @@
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
-
 require('./bootstrap');
-
 window.Vue = require('vue');
 
 
@@ -13,11 +6,26 @@ window.Vue = require('vue');
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 import Vue from 'vue'
-import App from './components/App.vue'
+import MeditationSet from "./components/MeditationSet";
+import StopWatch from "./components/StopWatch";
+import TodaysRecord from "./components/TodaysRecord";
 
 
-new Vue({
-    render: h => h(App),
 
-}).$mount('#app2')
+Vue.component('stop-watch', require('./components/StopWatch.vue').default);
 
+
+// new Vue({
+//     render: h => h(App),
+//
+// }).$mount('#Meditation')
+//
+
+const app = new Vue({
+    el: '#app',
+    components: {
+        StopWatch,
+        MeditationSet,
+        TodaysRecord,
+    }
+});
