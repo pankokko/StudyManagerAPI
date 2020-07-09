@@ -41,10 +41,10 @@
         methods: {
             getMeditations() {
                 this.records = JSON.parse(this.meditations);
-                console.log(this.records);
+                // console.log(this.records);
             },
             appendData(Value){
-                console.log('親コンポーネントで受け取りました');
+                // console.log('親コンポーネントで受け取りました');
                 var Value = JSON.parse(Value);
                 this.records.push(Value);
                 console.log(this.records);

@@ -28,7 +28,7 @@
     "vue-chartjs": "^3.5.0",
     "webpack": "^4.43.0"
   },
-  "name": "meditationandsportsmanager",
+  "name": "y",
   "description": "✳︎日々の瞑想記録とジョギングの記録およびサポートをするアプリ",
   "version": "1.0.0",
   "main": "npm install",

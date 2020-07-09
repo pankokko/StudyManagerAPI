@@ -22,11 +22,10 @@
                     <h4 class="my-0 font-weight-normal">瞑想管理</h4>
                 </div>
                 <div class="card-body">
-                    <h1 class="card-title pricing-card-title">●●分 <small class="text-muted">/ 今週</small></h1>
+                    <h1 class="card-title pricing-card-title">{{$weekMeditationSum}}分 <small class="text-muted">/ 今週</small></h1>
                     <ul class="list-unstyled mt-3 mb-4">
-                        <li>今日の瞑想時間</li>
-                        <li>朝　●●●分</li>
-                        <li>夜　●●●分</li>
+                        <li class="h4 font-weight-bold" >今日の瞑想時間</li>
+                        <li>{{$meditationSum}}分</li>
                         <li></li>
                     </ul>
                     <a class="btn btn-lg btn-block btn-outline-primary" href="{{route('user.mypage_meditation')}}">管理画面に入る</a>
@@ -49,17 +48,17 @@
             </div>
             <div class="card mb-4 box-shadow">
                 <div class="card-header">
-                    <h4 class="my-0 font-weight-normal">日々の積み重ね</h4>
+                    <h4 class="my-0 font-weight-normal">勉強記録管理</h4>
                 </div>
                 <div class="card-body">
-                    <h1 class="card-title pricing-card-title">$29 <small class="text-muted">/ mo</small></h1>
+                    <h1 class="card-title pricing-card-title">180分 <small class="text-muted">/ 今週</small></h1>
                     <ul class="list-unstyled mt-3 mb-4">
-                        <li>30 users included</li>
-                        <li>15 GB of storage</li>
-                        <li>Phone and email support</li>
-                        <li>Help center access</li>
+                        <li class="h4 font-weight-bold">今日の勉強時間</li>
+                        <li>{{$meditationSum}}分</li>
+                        <li class="h4 font-weight-bold">取り組み内容</li>
+                        <li>Vue.jsに取り組んだ</li>
                     </ul>
-                    <button type="button" class="btn btn-lg btn-block btn-primary">Contact us</button>
+                    <a class="btn btn-lg btn-block btn-outline-primary" href="{{route('user.mypage_meditation')}}">管理画面に入る</a>
                 </div>
             </div>
         </div>
