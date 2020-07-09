@@ -39,7 +39,7 @@ services:
       TZ: Asia/Tokyo
       MYSQL_ROOT_PASSWORD: password
       DB_NAMES: skeleton
-      MYSQL_DATABASE: skeleton
+      MYSQL_DATABASE: MeditationSports
     command: --default-authentication-plugin=mysql_native_password --innodb-use-native-aio=0
     restart: always
     tty: true
