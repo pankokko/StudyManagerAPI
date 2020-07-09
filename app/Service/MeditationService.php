@@ -3,20 +3,16 @@
 namespace App\Service;
 
 use App\Models\Meditation;
-use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
-use Illuminate\Support\Facades\DB;
-
 
 class MeditationService
 {
-
     public function getMeditationsById($userId)
     {
         //今日の瞑想時間だけとってくる
         $tmp = new Carbon('today');
         $today = $tmp->format('Y-m-d');
-        // $meditations = Meditation::where('user_id', $userId)->where('date', $today)->get();
+        $meditations = Meditation::where('user_id', $userId)->where('date', $today)->get();
 
         //一週間の瞑想時間をとってくる
         $week =  Carbon::now()->subDays(7);
@@ -48,9 +44,7 @@ class MeditationService
             'meditation_time' => $data['meditation_time'],
             'user_id'         => $data['user_id'],
         ]);
-
         return $meditation;
     }
-}
 
-?>
+}
