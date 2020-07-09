@@ -1913,13 +1913,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   "extends": vue_chartjs__WEBPACK_IMPORTED_MODULE_0__["Bar"],
   name: 'chart',
+  props: {
+    weekTime: {
+      type: Number
+    }
+  },
   data: function data() {
     return {
       data: {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+        labels: ['1週', '2週', '3週', '4週'],
         datasets: [{
           label: 'Line Dataset',
-          data: [10, 50, 20, 30, 30, 40],
+          data: [10, 20, 50],
           borderColor: '#CFD8DC',
           fill: false,
           type: 'line',
@@ -1945,6 +1950,9 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   mounted: function mounted() {
+    this.data.datasets[0].data.push(this.weekTime);
+    console.log('ぽういい');
+    console.dir(this.data.datasets[0].data);
     this.renderChart(this.data, this.options);
   }
 });
@@ -1972,15 +1980,27 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    meditationTime: {
+      type: Number
+    }
+  },
   data: function data() {
     return {
-      users: []
+      times: []
     };
   },
   components: {
     MeditationChart: _MeditationChart__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  created: function created() {
+    this.times = this.meditationTime;
+    console.log('時間');
+    console.log(this.times);
   }
 });
 
@@ -2168,11 +2188,10 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     getMeditations: function getMeditations() {
-      this.records = JSON.parse(this.meditations);
-      console.log(this.records);
+      this.records = JSON.parse(this.meditations); // console.log(this.records);
     },
     appendData: function appendData(Value) {
-      console.log('親コンポーネントで受け取りました');
+      // console.log('親コンポーネントで受け取りました');
       var Value = JSON.parse(Value);
       this.records.push(Value);
       console.log(this.records);
@@ -75365,7 +75384,16 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", {}, [_vm._m(0), _vm._v(" "), _c("MeditationChart")], 1)
+  return _c(
+    "div",
+    {},
+    [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("MeditationChart", { attrs: { "week-time": _vm.times } })
+    ],
+    1
+  )
 }
 var staticRenderFns = [
   function() {

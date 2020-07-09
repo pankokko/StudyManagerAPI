@@ -19,8 +19,8 @@ class MeditationService
         $meditations = Meditation::where('user_id', $userId)->where('date', $today)->get();
 
         //一週間の瞑想時間をとってくる
-        $week =  Carbon::now()->subDays(7)->toDateTimeString();
-        $today =  Carbon::now()->toDateTimeString();
+        $week =  Carbon::now()->subDays(7);
+        $today =  Carbon::now();
         $weekMeditations = Meditation::where('user_id', $userId)->whereBetween('date', [$week, $today])->get();
 
         //今日の瞑想時間だけ取得し配列に格納する

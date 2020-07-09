@@ -4,14 +4,19 @@
     export default {
         extends: Bar,
         name: 'chart',
+        props: {
+            weekTime: {
+                type: Number,
+            }
+        },
         data () {
             return {
                 data: {
-                    labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+                    labels: ['1週', '2週', '3週', '4週'],
                     datasets: [
                         {
                             label: 'Line Dataset',
-                            data: [10, 50, 20, 30, 30, 40],
+                            data: [10, 20 ,50],
                             borderColor: '#CFD8DC',
                             fill: false,
                             type: 'line',
@@ -39,6 +44,9 @@
             }
         },
         mounted () {
+            this.data.datasets[0].data.push(this.weekTime);
+            console.log('ぽういい');
+            console.dir(this.data.datasets[0].data);
             this.renderChart(this.data, this.options)
         }
     }

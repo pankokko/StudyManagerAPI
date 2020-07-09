@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Service\UserService;
@@ -32,7 +33,6 @@ class UserController extends Controller
             'weight' => $request->weight,
             'height' => $request->height,
         ];
-
         $this->userService->storePersonalData($attributes);
     }
 
@@ -40,7 +40,9 @@ class UserController extends Controller
     {
         $userId = auth()->guard('web')->id();
         $user = $this->userService->getUserinfo($userId);
-        return view('user.show_mypage', compact('user'));
+        [$meditations, $meditationSum, $weekMeditationSum] = $this->meditationService->getMeditationsById($userId);
+
+        return view('user.show_mypage', compact('user','meditationSum', 'weekMeditationSum'));
     }
 
     public function showMeditationDetail()
