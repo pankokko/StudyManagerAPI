@@ -6,7 +6,7 @@
         name: 'chart',
         props: {
             weekTime: {
-                type: Number,
+                type: Array,
             }
         },
         data () {
@@ -16,7 +16,7 @@
                     datasets: [
                         {
                             label: 'Line Dataset',
-                            data: [10, 20 ,50],
+                            data: [10, 20, 30 , 40 ],
                             borderColor: '#CFD8DC',
                             fill: false,
                             type: 'line',

@@ -1915,7 +1915,7 @@ __webpack_require__.r(__webpack_exports__);
   name: 'chart',
   props: {
     weekTime: {
-      type: Number
+      type: Array
     }
   },
   data: function data() {
@@ -1924,7 +1924,7 @@ __webpack_require__.r(__webpack_exports__);
         labels: ['1週', '2週', '3週', '4週'],
         datasets: [{
           label: 'Line Dataset',
-          data: [10, 20, 50],
+          data: [10, 20, 30, 40],
           borderColor: '#CFD8DC',
           fill: false,
           type: 'line',
@@ -1985,8 +1985,8 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
-    meditationTime: {
-      type: Number
+    timeMonth: {
+      type: Array
     }
   },
   data: function data() {
@@ -1998,9 +1998,7 @@ __webpack_require__.r(__webpack_exports__);
     MeditationChart: _MeditationChart__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   created: function created() {
-    this.times = this.meditationTime;
-    console.log('時間');
-    console.log(this.times);
+    console.log(this.timeMonth);
   }
 });
 

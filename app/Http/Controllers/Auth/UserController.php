@@ -41,8 +41,7 @@ class UserController extends Controller
         $userId = auth()->guard('web')->id();
         $user = $this->userService->getUserinfo($userId);
         [$meditations, $meditationSum, $weekMeditationSum] = $this->meditationService->getMeditationsById($userId);
-
-        return view('user.show_mypage', compact('user','meditationSum', 'weekMeditationSum'));
+        return view('user.show_mypage', compact('user', 'meditationSum', 'weekMeditationSum', 'monthMeditationTime'));
     }
 
     public function showMeditationDetail()
@@ -50,9 +49,8 @@ class UserController extends Controller
         $userId = Auth()->guard('web')->id();
         $user = $this->userService->getUserinfo($userId);
         [$meditations, $meditationSum, $weekMeditationSum] = $this->meditationService->getMeditationsById($userId);
-
-
-        return view('user.mypage_meditation', compact('user', 'meditationSum', 'weekMeditationSum', 'meditations'));
+        $monthMeditationTime = $this->meditationService->sumMonthMeditationTime($userId);
+        return view('user.mypage_meditation', compact('user', 'meditationSum', 'weekMeditationSum', 'monthMeditationTime', 'meditations'));
 
     }
 
