@@ -17,6 +17,7 @@ class CreateMeditationsTable extends Migration
             $table->id();
             $table->date('date')->nullable()->comment('瞑想した日');
             $table->string('meditation_time')->nullable()->comment('何分瞑想したか');
+            $table->integer('week_meditate')->nullable()->comment('月の何周目の瞑想か');
             $table->bigInteger('user_id')->unsigned();
             $table->string('music_url', 100)->nullable()->comment('瞑想用音楽のURL');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

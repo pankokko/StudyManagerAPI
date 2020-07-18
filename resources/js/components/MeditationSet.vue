@@ -18,8 +18,8 @@
 
     export default {
         props: {
-            meditationTime: {
-                type:Number,
+            timeMonth: {
+                type: Array,
             },
         },
         data() {
@@ -31,9 +31,8 @@
             MeditationChart,
         },
         created() {
-            this.times = this.meditationTime;
-            console.log('時間');
-            console.log(this.times);
+            console.log(this.timeMonth);
+
         }
     }
 
