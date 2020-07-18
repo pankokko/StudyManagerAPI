@@ -46,7 +46,7 @@ class UserController extends Controller
         return view('user.show_mypage', compact('user', 'meditationSum', 'weekMeditationSum', 'monthMeditationTime'));
     }
 
-    public function showMeditationDetail()
+    public function showMypageMeditation()
     {
         $userId = Auth()->guard('web')->id();
         $user = $this->userService->getUserinfo($userId);
@@ -54,6 +54,11 @@ class UserController extends Controller
         $monthMeditationTime = $this->meditationService->sumMonthMeditationTime($userId);
         return view('user.mypage_meditation', compact('user', 'meditationSum', 'weekMeditationSum', 'monthMeditationTime', 'meditations'));
 
+    }
+
+    public function showMypageStudy()
+    {
+        return view('user.mypage_study');
     }
 
 }

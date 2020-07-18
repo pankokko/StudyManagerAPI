@@ -9,23 +9,15 @@ import Vue from 'vue'
 import MeditationSet from "./components/MeditationSet";
 import StopWatch from "./components/StopWatch";
 import TodaysRecord from "./components/TodaysRecord";
+import DayHours from "./components/DayHours";
 
-
-
-Vue.component('stop-watch', require('./components/StopWatch.vue').default);
-
-
-// new Vue({
-//     render: h => h(App),
-//
-// }).$mount('#Meditation')
-//
 
 const app = new Vue({
     el: '#app',
     components: {
         StopWatch,
         MeditationSet,
+        DayHours,
         TodaysRecord,
     }
 });

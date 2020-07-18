@@ -1,16 +1,5 @@
-@extends('layouts.app')
+@extends('layouts.public')
 @section('content')
-
-    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
-        <h5 class="my-0 mr-md-auto font-weight-normal">ようこそ！　{{$user->name}} さん</h5>
-        @auth
-            <form method="post" action="{{ route('logout') }}">
-                @csrf
-                <button type="submit" class="btn btn-primary">ログアウト</button>
-            </form>
-        @endif
-    </div>
-
     <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
         <h1 class="display-4">MeditationSportsManager</h1>
     </div>
@@ -56,7 +45,7 @@
                         <li class="h4 font-weight-bold">今日の勉強時間</li>
                         <li>{{$meditationSum}}分</li>
                     </ul>
-                    <a class="btn btn-lg btn-block btn-outline-primary" href="{{route('user.mypage_meditation')}}">管理画面に入る</a>
+                    <a class="btn btn-lg btn-block btn-outline-primary" href="{{route('user.mypage_study')}}">管理画面に入る</a>
                 </div>
             </div>
         </div>
