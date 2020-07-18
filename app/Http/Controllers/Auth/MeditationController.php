@@ -29,7 +29,6 @@ class MeditationController extends Controller
         ];
 
         $meditation = $this->meditationService->storeMeditationData($attributes);
-
         $meditation = json_encode($meditation);
         return [$meditation];
     }

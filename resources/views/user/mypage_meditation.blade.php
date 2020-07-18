@@ -7,7 +7,7 @@
 
     <div class="container d-flex">
         <div class="card-deck text-center">
-            <meditation-set :meditation-time="{{ $weekMeditationSum }}"></meditation-set>
+            <meditation-set :time-month="{{ $monthMeditationTime }}"></meditation-set>
             <div class="card box-shadow h-50" style="width: 700px;">
                 <div class="card-header">
                     <h4 class="my-0 font-weight-normal">瞑想管理</h4>

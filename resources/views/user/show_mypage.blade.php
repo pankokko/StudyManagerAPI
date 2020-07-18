@@ -55,8 +55,6 @@
                     <ul class="list-unstyled mt-3 mb-4">
                         <li class="h4 font-weight-bold">今日の勉強時間</li>
                         <li>{{$meditationSum}}分</li>
-                        <li class="h4 font-weight-bold">取り組み内容</li>
-                        <li>Vue.jsに取り組んだ</li>
                     </ul>
                     <a class="btn btn-lg btn-block btn-outline-primary" href="{{route('user.mypage_meditation')}}">管理画面に入る</a>
                 </div>
