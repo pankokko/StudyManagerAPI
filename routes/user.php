@@ -12,5 +12,3 @@ Route::middleware('auth:web')->name('user.')->namespace('Auth')->group(function 
         Route::post('save_record', 'MeditationController@saveRecord')->name('save_record');
     });
 });
-
-?>

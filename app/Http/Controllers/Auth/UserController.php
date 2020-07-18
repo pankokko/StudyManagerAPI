@@ -41,6 +41,8 @@ class UserController extends Controller
         $userId = auth()->guard('web')->id();
         $user = $this->userService->getUserinfo($userId);
         [$meditations, $meditationSum, $weekMeditationSum] = $this->meditationService->getMeditationsById($userId);
+        $monthMeditationTime = $this->meditationService->sumMonthMeditationTime($userId);
+
         return view('user.show_mypage', compact('user', 'meditationSum', 'weekMeditationSum', 'monthMeditationTime'));
     }
 
