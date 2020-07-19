@@ -11,7 +11,6 @@ import StopWatch from "./components/StopWatch";
 import TodaysRecord from "./components/TodaysRecord";
 import DayHours from "./components/DayHours";
 
-
 const app = new Vue({
     el: '#app',
     components: {

@@ -12,4 +12,8 @@ Route::middleware('auth:web')->name('user.')->namespace('Auth')->group(function 
     Route::name('meditation.')->prefix('meditation')->group(function(){
         Route::post('save_record', 'MeditationController@saveRecord')->name('save_record');
     });
+
+    Route::name('study.')->prefix('study')->group(function() {
+       Route::post('create_record', 'StudyController@createRecord')->name('create_record');
+    });
 });
