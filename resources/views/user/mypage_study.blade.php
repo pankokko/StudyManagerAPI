@@ -1,6 +1,5 @@
 @extends('layouts.public')
 @section('title', '勉強ページ')
 @section('content')
-
-<study-table></study-table>
+    <day-hours></day-hours>
 @endsection

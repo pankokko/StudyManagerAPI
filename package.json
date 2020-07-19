@@ -25,7 +25,9 @@
   },
   "dependencies": {
     "chart.js": "^2.9.3",
+    "moment": "^2.27.0",
     "vue-chartjs": "^3.5.0",
+    "vuejs-datepicker": "^1.6.2",
     "webpack": "^4.43.0"
   },
   "name": "y",

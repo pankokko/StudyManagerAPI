@@ -1899,6 +1899,129 @@ module.exports = {
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/DayHours.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/DayHours.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _RegisterStudy__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./RegisterStudy */ "./resources/js/components/RegisterStudy.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      data: {
+        hours: [{
+          id: 1,
+          time: "午前0時"
+        }, {
+          id: 2,
+          time: "午前1時"
+        }, {
+          id: 3,
+          time: "午前2時"
+        }, {
+          id: 4,
+          time: "午前3時"
+        }, {
+          id: 5,
+          time: "午前4時"
+        }, {
+          id: 6,
+          time: "午前5時"
+        }, {
+          id: 7,
+          time: "午前6時"
+        }, {
+          id: 8,
+          time: "午前7時"
+        }, {
+          id: 9,
+          time: "午前8時"
+        }, {
+          id: 10,
+          time: "午前9時"
+        }, {
+          id: 11,
+          time: "午前10時"
+        }, {
+          id: 12,
+          time: "午前11時"
+        }, {
+          id: 13,
+          time: "午後12時"
+        }, {
+          id: 14,
+          time: "午後13時"
+        }, {
+          id: 15,
+          time: "午後14時"
+        }, {
+          id: 16,
+          time: "午後15時"
+        }, {
+          id: 17,
+          time: "午後16時"
+        }, {
+          id: 18,
+          time: "午後17時"
+        }, {
+          id: 19,
+          time: "午後18時"
+        }, {
+          id: 20,
+          time: "午後19時"
+        }, {
+          id: 21,
+          time: "午後20時"
+        }, {
+          id: 22,
+          time: "午後21時"
+        }, {
+          id: 23,
+          time: "午後22時"
+        }, {
+          id: 24,
+          time: "午後23時"
+        }, {
+          id: 25,
+          time: "午後24時"
+        }]
+      }
+    };
+  },
+  components: {
+    RegisterStudy: _RegisterStudy__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  methods: {
+    appendStudyRecord: function appendStudyRecord(value) {
+      console.log(value);
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/MeditationChart.vue?vue&type=script&lang=js&":
 /*!**************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/MeditationChart.vue?vue&type=script&lang=js& ***!
@@ -1999,6 +2122,193 @@ __webpack_require__.r(__webpack_exports__);
   },
   created: function created() {
     console.log(this.timeMonth);
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/RegisterStudy.vue?vue&type=script&lang=js&":
+/*!************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/RegisterStudy.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      studyTitle: '',
+      studyContent: '',
+      year: "",
+      month: "",
+      day: "",
+      startedHour: "",
+      startedMin: "",
+      endHour: "",
+      endMin: ""
+    };
+  },
+  created: function created() {
+    var date = new Date();
+    this.year = date.getFullYear();
+    this.month = date.getMonth() + 1;
+    this.day = date.getDate();
+  },
+  methods: {
+    createRecord: function createRecord() {
+      var _this = this;
+
+      var record = {
+        studyTitle: this.studyTitle,
+        studyContent: this.studyContent,
+        year: this.year,
+        month: this.month,
+        day: this.day,
+        startedHour: this.startedHour,
+        startedMin: this.startedMin,
+        endHour: this.endHour,
+        endMin: this.endMin
+      };
+      axios.post("/user/study/create_record", record).then(function (res) {
+        if (res.data) {
+          _this.addStudyRecord(res.data);
+        }
+      });
+    },
+    addStudyRecord: function addStudyRecord(value) {
+      this.$emit('appendStudy', value);
+    }
   }
 });
 
@@ -75449,6 +75759,62 @@ var reactiveProp = {
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/DayHours.vue?vue&type=template&id=9ddcae84&":
+/*!***********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/DayHours.vue?vue&type=template&id=9ddcae84& ***!
+  \***********************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "container" },
+    [
+      _c("RegisterStudy", { on: { appendStudy: _vm.appendStudyRecord } }),
+      _vm._v(" "),
+      _c("table", { staticClass: "table table-bordered" }, [
+        _c(
+          "thead",
+          _vm._l(_vm.data.hours, function(hour, index) {
+            return _c("tr", { attrs: { keys: hour.id } }, [
+              _c("th", { attrs: { scope: "col-3" } }, [
+                _vm._v(_vm._s(hour.time))
+              ]),
+              _vm._v(" "),
+              _vm._m(0, true)
+            ])
+          }),
+          0
+        )
+      ])
+    ],
+    1
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("th", { attrs: { scope: "col-9" } }, [
+      _c("p", { staticClass: "btn btn-primary" }, [_vm._v("勉強のタイトル")])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/MeditationSet.vue?vue&type=template&id=729d1bc9&":
 /*!****************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/MeditationSet.vue?vue&type=template&id=729d1bc9& ***!
@@ -75484,6 +75850,438 @@ var staticRenderFns = [
       _c("h4", { staticClass: "my-0 font-weight-normal" }, [
         _vm._v("瞑想チャート")
       ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/RegisterStudy.vue?vue&type=template&id=5d6854ea&":
+/*!****************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/RegisterStudy.vue?vue&type=template&id=5d6854ea& ***!
+  \****************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container" }, [
+    _c(
+      "button",
+      {
+        staticClass: "btn btn-primary",
+        attrs: {
+          type: "button",
+          "data-toggle": "modal",
+          "data-target": "#exampleModal",
+          "data-whatever": "@mdo"
+        }
+      },
+      [_vm._v("勉強時間登録\n    ")]
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "exampleModal",
+          tabindex: "-1",
+          role: "dialog",
+          "aria-labelledby": "exampleModalLabel",
+          "aria-hidden": "true"
+        }
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass: "modal-dialog custom-modal w-100",
+            attrs: { role: "document" }
+          },
+          [
+            _c("div", { staticClass: "modal-content" }, [
+              _vm._m(0),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-body" }, [
+                _c("form", [
+                  _c("div", { staticClass: "form-group" }, [
+                    _c(
+                      "label",
+                      {
+                        staticClass: "col-form-label",
+                        attrs: { for: "recipient-name" }
+                      },
+                      [_vm._v("勉強タイトル")]
+                    ),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.studyTitle,
+                          expression: "studyTitle"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "text",
+                        name: "study_title",
+                        id: "recipient-name"
+                      },
+                      domProps: { value: _vm.studyTitle },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.studyTitle = $event.target.value
+                        }
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group" }, [
+                    _c(
+                      "label",
+                      {
+                        staticClass: "col-form-label",
+                        attrs: { for: "message-text" }
+                      },
+                      [_vm._v("勉強内容")]
+                    ),
+                    _vm._v(" "),
+                    _c("textarea", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.studyContent,
+                          expression: "studyContent"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { name: "study_content", id: "message-text" },
+                      domProps: { value: _vm.studyContent },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.studyContent = $event.target.value
+                        }
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-inline" }, [
+                    _c("div", { staticClass: "form-group" }, [
+                      _c("label", { attrs: { for: "started_date-year" } }, [
+                        _vm._v("日付:")
+                      ]),
+                      _vm._v(" "),
+                      _c("div", {}, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.year,
+                              expression: "year"
+                            }
+                          ],
+                          staticClass: "form-control w-50",
+                          attrs: { type: "text", id: "started_date-year" },
+                          domProps: { value: _vm.year },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.year = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(
+                          "\n                                    年\n                                "
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group" }, [
+                      _c("label", { attrs: { for: "started_date-month" } }),
+                      _vm._v(" "),
+                      _c("div", {}, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.month,
+                              expression: "month"
+                            }
+                          ],
+                          staticClass: "form-control w-50",
+                          attrs: { type: "text", id: "started_date-month" },
+                          domProps: { value: _vm.month },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.month = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(
+                          "\n                                    月\n                                "
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group" }, [
+                      _c("label", { attrs: { for: "started_date-day" } }),
+                      _vm._v(" "),
+                      _c("div", {}, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.day,
+                              expression: "day"
+                            }
+                          ],
+                          staticClass: "form-control w-50",
+                          attrs: { type: "text", id: "started_date-day" },
+                          domProps: { value: _vm.day },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.day = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(
+                          "\n                                    日\n                                "
+                        )
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-inline" }, [
+                    _c("div", { staticClass: "form-group" }, [
+                      _c("label", { attrs: { for: "started_time-hour" } }, [
+                        _vm._v("開始時刻:")
+                      ]),
+                      _vm._v(" "),
+                      _c("div", {}, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.startedHour,
+                              expression: "startedHour"
+                            }
+                          ],
+                          staticClass: "form-control w-50",
+                          attrs: {
+                            type: "text",
+                            id: "started_time-hour",
+                            name: "started-hour"
+                          },
+                          domProps: { value: _vm.startedHour },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.startedHour = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(
+                          "\n                                    時\n                                "
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group" }, [
+                      _c("label", { attrs: { for: "started_time-min" } }),
+                      _vm._v(" "),
+                      _c("div", {}, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.startedMin,
+                              expression: "startedMin"
+                            }
+                          ],
+                          staticClass: "form-control w-50",
+                          attrs: {
+                            type: "text",
+                            id: "started_time-min",
+                            name: "started-min"
+                          },
+                          domProps: { value: _vm.startedMin },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.startedMin = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(
+                          "\n                                    分\n                                "
+                        )
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-inline" }, [
+                    _c("div", { staticClass: "form-group" }, [
+                      _c("label", { attrs: { for: "end_time-hour" } }, [
+                        _vm._v("終了時刻:")
+                      ]),
+                      _vm._v(" "),
+                      _c("div", {}, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.endHour,
+                              expression: "endHour"
+                            }
+                          ],
+                          staticClass: "form-control w-50",
+                          attrs: {
+                            type: "text",
+                            id: "end_time-hour",
+                            name: "end-hour"
+                          },
+                          domProps: { value: _vm.endHour },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.endHour = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(
+                          "\n                                    時\n                                "
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group" }, [
+                      _c("label", { attrs: { for: "end_time-min" } }),
+                      _vm._v(" "),
+                      _c("div", {}, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.endMin,
+                              expression: "endMin"
+                            }
+                          ],
+                          staticClass: "form-control w-50",
+                          attrs: {
+                            type: "text",
+                            id: "end_time-min",
+                            name: "end-min"
+                          },
+                          domProps: { value: _vm.endMin },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.endMin = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(
+                          "\n                                    分\n                                "
+                        )
+                      ])
+                    ])
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-footer" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-secondary",
+                    attrs: { type: "button", "data-dismiss": "modal" }
+                  },
+                  [_vm._v("Close")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-primary",
+                    attrs: { type: "button", "data-dismiss": "modal" },
+                    on: { click: _vm.createRecord }
+                  },
+                  [_vm._v("Send message")]
+                )
+              ])
+            ])
+          ]
+        )
+      ]
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
+        [_vm._v("New message")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "modal",
+            "aria-label": "Close"
+          }
+        },
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+      )
     ])
   }
 ]
@@ -87846,7 +88644,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_MeditationSet__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/MeditationSet */ "./resources/js/components/MeditationSet.vue");
 /* harmony import */ var _components_StopWatch__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/StopWatch */ "./resources/js/components/StopWatch.vue");
 /* harmony import */ var _components_TodaysRecord__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/TodaysRecord */ "./resources/js/components/TodaysRecord.vue");
-/* harmony import */ var _components_StudyTable__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/StudyTable */ "./resources/js/components/StudyTable.vue");
+/* harmony import */ var _components_DayHours__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/DayHours */ "./resources/js/components/DayHours.vue");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js"); // const files = require.context('./', true, /\.vue$/i)
@@ -87862,7 +88660,7 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   components: {
     StopWatch: _components_StopWatch__WEBPACK_IMPORTED_MODULE_2__["default"],
     MeditationSet: _components_MeditationSet__WEBPACK_IMPORTED_MODULE_1__["default"],
-    StudyTable: _components_StudyTable__WEBPACK_IMPORTED_MODULE_4__["default"],
+    DayHours: _components_DayHours__WEBPACK_IMPORTED_MODULE_4__["default"],
     TodaysRecord: _components_TodaysRecord__WEBPACK_IMPORTED_MODULE_3__["default"]
   }
 });
@@ -87911,6 +88709,75 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/components/DayHours.vue":
+/*!**********************************************!*\
+  !*** ./resources/js/components/DayHours.vue ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _DayHours_vue_vue_type_template_id_9ddcae84___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DayHours.vue?vue&type=template&id=9ddcae84& */ "./resources/js/components/DayHours.vue?vue&type=template&id=9ddcae84&");
+/* harmony import */ var _DayHours_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DayHours.vue?vue&type=script&lang=js& */ "./resources/js/components/DayHours.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _DayHours_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _DayHours_vue_vue_type_template_id_9ddcae84___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _DayHours_vue_vue_type_template_id_9ddcae84___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/DayHours.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/DayHours.vue?vue&type=script&lang=js&":
+/*!***********************************************************************!*\
+  !*** ./resources/js/components/DayHours.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DayHours_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./DayHours.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/DayHours.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DayHours_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/DayHours.vue?vue&type=template&id=9ddcae84&":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/components/DayHours.vue?vue&type=template&id=9ddcae84& ***!
+  \*****************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DayHours_vue_vue_type_template_id_9ddcae84___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./DayHours.vue?vue&type=template&id=9ddcae84& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/DayHours.vue?vue&type=template&id=9ddcae84&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DayHours_vue_vue_type_template_id_9ddcae84___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DayHours_vue_vue_type_template_id_9ddcae84___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
 
 /***/ }),
 
@@ -88028,6 +88895,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MeditationSet_vue_vue_type_template_id_729d1bc9___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MeditationSet_vue_vue_type_template_id_729d1bc9___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/RegisterStudy.vue":
+/*!***************************************************!*\
+  !*** ./resources/js/components/RegisterStudy.vue ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _RegisterStudy_vue_vue_type_template_id_5d6854ea___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./RegisterStudy.vue?vue&type=template&id=5d6854ea& */ "./resources/js/components/RegisterStudy.vue?vue&type=template&id=5d6854ea&");
+/* harmony import */ var _RegisterStudy_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./RegisterStudy.vue?vue&type=script&lang=js& */ "./resources/js/components/RegisterStudy.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _RegisterStudy_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _RegisterStudy_vue_vue_type_template_id_5d6854ea___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _RegisterStudy_vue_vue_type_template_id_5d6854ea___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/RegisterStudy.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/RegisterStudy.vue?vue&type=script&lang=js&":
+/*!****************************************************************************!*\
+  !*** ./resources/js/components/RegisterStudy.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_RegisterStudy_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./RegisterStudy.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/RegisterStudy.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_RegisterStudy_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/RegisterStudy.vue?vue&type=template&id=5d6854ea&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/components/RegisterStudy.vue?vue&type=template&id=5d6854ea& ***!
+  \**********************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RegisterStudy_vue_vue_type_template_id_5d6854ea___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./RegisterStudy.vue?vue&type=template&id=5d6854ea& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/RegisterStudy.vue?vue&type=template&id=5d6854ea&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RegisterStudy_vue_vue_type_template_id_5d6854ea___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RegisterStudy_vue_vue_type_template_id_5d6854ea___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -88251,10 +89187,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/sass/test.scss":
-/*!**********************************!*\
-  !*** ./resources/sass/test.scss ***!
-  \**********************************/
+/***/ "./resources/sass/custom_modal.scss":
+/*!******************************************!*\
+  !*** ./resources/sass/custom_modal.scss ***!
+  \******************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -88263,15 +89199,15 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 0:
-/*!****************************************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/test.scss ***!
-  \****************************************************************************************/
+/*!************************************************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/custom_modal.scss ***!
+  \************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/next-stage/Vagrant/Projects/MeditationAndSportsManagerapp/resources/js/app.js */"./resources/js/app.js");
-__webpack_require__(/*! /Users/next-stage/Vagrant/Projects/MeditationAndSportsManagerapp/resources/sass/app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! /Users/next-stage/Vagrant/Projects/MeditationAndSportsManagerapp/resources/sass/test.scss */"./resources/sass/test.scss");
+__webpack_require__(/*! /Users/next-stage/Projects/MeditationAndSportsManager/resources/js/app.js */"./resources/js/app.js");
+__webpack_require__(/*! /Users/next-stage/Projects/MeditationAndSportsManager/resources/sass/app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! /Users/next-stage/Projects/MeditationAndSportsManager/resources/sass/custom_modal.scss */"./resources/sass/custom_modal.scss");
 
 
 /***/ })
