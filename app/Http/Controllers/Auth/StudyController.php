@@ -31,20 +31,36 @@ class StudyController extends Controller
                 'endHour' => $request->endHour,
                 'endMin'  => $request->endMin,
             ],
-            ];
+        ];
 
         $studyDt = $this->studyService->convertToDateTimes($dateData);
 
         $attributes = [
-            'study' => [
+            'study'   => [
                 'study_title'   => $request->studyTitle,
                 'study_content' => $request->studyContent,
             ],
             'user_id' => auth()->guard('web')->id(),
-            'date' => $studyDt,
+            'date'    => $studyDt,
         ];
 
         $study = $this->studyService->saveRecord($attributes);
         return $study;
     }
+
+    public function showMypageStudy(Request $request)
+    {
+        $studies = $this->studyService->fetchStudyRecordsById();
+
+        return view('user.mypage_study', compact('studies'));
+    }
+
+    public function getStudyAxios()
+    {
+        $studies = $this->studyService->fetchStudyRecordsById();
+
+        return $studies;
+
+    }
+
 }

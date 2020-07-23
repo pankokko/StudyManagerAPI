@@ -43,4 +43,9 @@ class StudyService
         return $studyDt;
     }
 
+    public function fetchStudyRecordsById()
+    {
+        $userId = auth()->guard('web')->id();
+        return Study::where('user_id', $userId)->get();
+    }
 }

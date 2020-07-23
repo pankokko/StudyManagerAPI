@@ -56,9 +56,5 @@ class UserController extends Controller
 
     }
 
-    public function showMypageStudy()
-    {
-        return view('user.mypage_study');
-    }
 
 }

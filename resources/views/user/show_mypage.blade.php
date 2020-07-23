@@ -45,7 +45,7 @@
                         <li class="h4 font-weight-bold">今日の勉強時間</li>
                         <li>{{$meditationSum}}分</li>
                     </ul>
-                    <a class="btn btn-lg btn-block btn-outline-primary" href="{{route('user.mypage_study')}}">管理画面に入る</a>
+                    <a class="btn btn-lg btn-block btn-outline-primary" href="{{route('user.study.mypage_study')}}">管理画面に入る</a>
                 </div>
             </div>
         </div>

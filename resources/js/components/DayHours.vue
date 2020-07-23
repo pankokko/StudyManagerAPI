@@ -50,7 +50,6 @@
                         {id: 24, time: "午後23時"},
                         {id: 25, time: "午後24時"},
                     ],
-
                 }
             }
         },
@@ -58,8 +57,16 @@
             RegisterStudy,
         },
         methods: {
-            appendStudyRecord (value) {
-                console.log(value);
+            // appendStudyRecord (value) {
+            //     console.log(value);
+            // }
+
+            //アクシオスgetできるか実験
+            appendStudyRecord () {
+                axios.get('/user/study/study_axios').then(response => {
+                    console.log('セイコウ');
+                    console.log(response.data);
+                })
             }
         }
     }

@@ -2014,8 +2014,15 @@ __webpack_require__.r(__webpack_exports__);
     RegisterStudy: _RegisterStudy__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   methods: {
-    appendStudyRecord: function appendStudyRecord(value) {
-      console.log(value);
+    // appendStudyRecord (value) {
+    //     console.log(value);
+    // }
+    //アクシオスgetできるか実験
+    appendStudyRecord: function appendStudyRecord() {
+      axios.get('/user/study/study_axios').then(function (response) {
+        console.log('セイコウ');
+        console.log(response.data);
+      });
     }
   }
 });
