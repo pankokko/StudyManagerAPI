@@ -19,4 +19,9 @@ class Study extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function hour()
+    {
+        return $this->belongsTo(Hour::class);
+    }
 }

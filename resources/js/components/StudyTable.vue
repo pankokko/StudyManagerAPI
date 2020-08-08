@@ -3,13 +3,13 @@
         <RegisterStudy @appendStudy="appendStudyRecord" ></RegisterStudy>
         <table class="table table-bordered">
             <thead>
-            <tr v-for="(hour, index) in data.hours" :keys="hour.id">
-                <th scope="col-3">{{ hour.time }}</th>
-
+            <tr>
+                <th scope="col-3"></th>
                 <th scope="col-9">
-                    <p class="btn btn-primary">勉強のタイトル</p>
+                    <p class="btn btn-primary" v-if=""></p>
                 </th>
             </tr>
+
             </thead>
         </table>
     </div>
@@ -20,6 +20,11 @@
     import RegisterStudy from "./RegisterStudy";
 
     export default {
+        props: {
+            records: {
+                type: Array,
+            }
+        },
         data() {
             return {
                 data: {
@@ -48,7 +53,6 @@
                         {id: 22, time: "午後21時"},
                         {id: 23, time: "午後22時"},
                         {id: 24, time: "午後23時"},
-                        {id: 25, time: "午後24時"},
                     ],
                 }
             }
@@ -57,10 +61,6 @@
             RegisterStudy,
         },
         methods: {
-            // appendStudyRecord (value) {
-            //     console.log(value);
-            // }
-
             //アクシオスgetできるか実験
             appendStudyRecord () {
                 axios.get('/user/study/study_axios').then(response => {
@@ -68,6 +68,9 @@
                     console.log(response.data);
                 })
             }
-        }
+        },
+        created() {
+          console.log(this.records);
+        },
     }
 </script>

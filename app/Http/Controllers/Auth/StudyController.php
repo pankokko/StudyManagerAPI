@@ -48,12 +48,6 @@ class StudyController extends Controller
         return $study;
     }
 
-    public function showMypageStudy(Request $request)
-    {
-        $studies = $this->studyService->fetchStudyRecordsById();
-
-        return view('user.mypage_study', compact('studies'));
-    }
 
     public function getStudyAxios()
     {

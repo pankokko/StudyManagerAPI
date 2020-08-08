@@ -17,7 +17,7 @@ class UserController extends Controller
 
     public function __construct(UserService $userService, MeditationService $meditationService)
     {
-        $this->userId = auth()->guard('web')->id();
+        $this->userId = auth()->guard('user')->id();
         $this->userService = $userService;
         $this->meditationService = $meditationService;
     }
@@ -38,7 +38,7 @@ class UserController extends Controller
 
     public function showMyPage()
     {
-        $userId = auth()->guard('web')->id();
+        $userId = auth()->guard('user')->id();
         $user = $this->userService->getUserinfo($userId);
         [$meditations, $meditationSum, $weekMeditationSum] = $this->meditationService->getMeditationsById($userId);
         $monthMeditationTime = $this->meditationService->sumMonthMeditationTime($userId);
@@ -48,7 +48,7 @@ class UserController extends Controller
 
     public function showMypageMeditation()
     {
-        $userId = Auth()->guard('web')->id();
+        $userId = Auth()->guard('user')->id();
         $user = $this->userService->getUserinfo($userId);
         [$meditations, $meditationSum, $weekMeditationSum] = $this->meditationService->getMeditationsById($userId);
         $monthMeditationTime = $this->meditationService->sumMonthMeditationTime($userId);

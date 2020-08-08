@@ -4,6 +4,7 @@ namespace App\Service;
 
 use App\Models\Study;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class StudyService
 {
@@ -29,11 +30,11 @@ class StudyService
         //勉強した日の配列を１つのカラムにする
         $studyDt = implode('-', $data['date']);
         //スタート時間の配列を１つのdatetimeカラムにする
-        $started = implode('-', $data['start']);
+        $started = implode(':', $data['start']);
         //終了時間の配列を1つのdatetimeカラムにする
-        $end = implode('-', $data['end']);
-        $startedTime = $studyDt . '-' . $started;
-        $endTime = $studyDt . '-' . $end;
+        $end = implode(':', $data['end']);
+        $startedTime = $started . ':' . '00';
+        $endTime = $end . ':' .  '00';
 
         $studyDt = [
             'study_dt'     => $studyDt,
@@ -43,9 +44,10 @@ class StudyService
         return $studyDt;
     }
 
-    public function fetchStudyRecordsById()
+    public function fetchTodaysRecord()
     {
+        $today = new Carbon('today');
         $userId = auth()->guard('web')->id();
-        return Study::where('user_id', $userId)->get();
+        return Study::where('user_id', $userId)->where('study_dt', '=', $today )->get();
     }
 }

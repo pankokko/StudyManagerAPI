@@ -1,5 +1,5 @@
 @extends('layouts.public')
 @section('title', '勉強ページ')
 @section('content')
-    <day-hours></day-hours>
+    <study-table :records="{{$studies}}"></study-table>
 @endsection
