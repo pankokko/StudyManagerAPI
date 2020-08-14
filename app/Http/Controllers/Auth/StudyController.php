@@ -48,6 +48,11 @@ class StudyController extends Controller
         return $study;
     }
 
+    public function showMypageStudy()
+    {
+        return view('user.mypage_study');
+    }
+
 
     public function getStudyAxios()
     {
