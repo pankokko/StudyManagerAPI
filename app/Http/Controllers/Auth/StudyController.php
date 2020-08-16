@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use Illuminate\Http\Request;
 use App\Service\StudyService;
+use Date;
+use Carbon\Carbon;
 use App\Http\Controllers\Controller;
 
 class StudyController extends Controller
@@ -18,30 +20,19 @@ class StudyController extends Controller
     public function createRecord(Request $request)
     {
         $dateData = [
-            'date'  => [
-                'year'  => $request->year,
-                'month' => $request->month,
-                'day'   => $request->day,
-            ],
-            'start' => [
-                'startedHour' => $request->startedHour,
-                'startedMin'  => $request->startedMin,
-            ],
-            'end'   => [
-                'endHour' => $request->endHour,
-                'endMin'  => $request->endMin,
-            ],
+            'study_time' => $request->input('study_time'),
         ];
-
-        $studyDt = $this->studyService->convertToDateTimes($dateData);
+        $time = Date::convertToDateTimes($dateData);
 
         $attributes = [
+            'id'      => $request->id,
+            'time'    => $time,
             'study'   => [
-                'study_title'   => $request->studyTitle,
-                'study_content' => $request->studyContent,
+                'study_title'   => $request->input('study_title'),
+                'study_content' => $request->input('study_content'),
+                'study_dt'      => Carbon::today(),
             ],
-            'user_id' => auth()->guard('web')->id(),
-            'date'    => $studyDt,
+            'user_id' => auth()->guard('user')->id(),
         ];
 
         $study = $this->studyService->saveRecord($attributes);
@@ -50,9 +41,17 @@ class StudyController extends Controller
 
     public function showMypageStudy()
     {
-        return view('user.mypage_study');
+        [$weeklyStudies, $monthlyStudies] = $this->studyService->fetchMonthlyRecords();
+
+        $studiesJson = json_encode($weeklyStudies);
+        return view('user.mypage_study', compact('studiesJson', 'monthlyStudies'));
     }
 
+    public function showRegisterForm()
+    {
+        $today = Carbon::now();
+        return view('study.register_form', compact('today'));
+    }
 
     public function getStudyAxios()
     {

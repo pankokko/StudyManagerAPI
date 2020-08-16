@@ -14,7 +14,7 @@ class Authenticate extends Middleware
      * @return string|null
      */
 
-    protected $user_redirect = 'user.login';
+    protected $user_redirect = 'login';
     protected $admin_redirect = 'admin.login';
 
     protected function redirectTo($request)

@@ -3,13 +3,16 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Study extends Model
 {
+
     protected $fillable = [
-        'started_time',
         'study_dt',
-        'end_time',
+        'study_hour',
+        'study_minutes',
         'study_title',
         'study_content',
         'user_id',
@@ -20,8 +23,6 @@ class Study extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function hour()
-    {
-        return $this->belongsTo(Hour::class);
-    }
+
+
 }

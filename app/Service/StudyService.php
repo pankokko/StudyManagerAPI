@@ -4,6 +4,7 @@ namespace App\Service;
 
 use App\Models\Study;
 use Illuminate\Support\Facades\DB;
+use Date;
 use Carbon\Carbon;
 
 class StudyService
@@ -11,43 +12,68 @@ class StudyService
     public function saveRecord(array $data)
     {
         try {
-            $savedData = Study::create([
-                'started_time'  => $data['date']['started_time'],
-                'end_time'      => $data['date']['end_time'],
-                'study_dt'      => $data['date']['study_dt'],
-                'study_title'   => $data['study']['study_title'],
-                'study_content' => $data['study']['study_content'],
-                'user_id'       => $data['user_id'],
-            ]);
+            $query = Study::updateOrCreate(
+                ['id' => $data['id']],
+                [
+                    'study_hour'    => $data['time']['study_hour'],
+                    'study_minutes' => $data['time']['study_minutes'],
+                    'study_title'   => $data['study']['study_title'],
+                    'study_content' => $data['study']['study_content'],
+                    'study_dt'      => $data['study']['study_dt'],
+                    'user_id'       => $data['user_id']
+                ]
+            );
+
         } catch (\Exception $e) {
+            DB::rollBack();
             logger($e->getMessage());
         }
-        return $savedData;
+        DB::commit();
+        return true;
     }
 
-    public function convertToDateTimes(array $data)
+    public function fetchMonthlyRecords()
     {
-        //勉強した日の配列を１つのカラムにする
-        $studyDt = implode('-', $data['date']);
-        //スタート時間の配列を１つのdatetimeカラムにする
-        $started = implode(':', $data['start']);
-        //終了時間の配列を1つのdatetimeカラムにする
-        $end = implode(':', $data['end']);
-        $startedTime = $started . ':' . '00';
-        $endTime = $end . ':' .  '00';
 
-        $studyDt = [
-            'study_dt'     => $studyDt,
-            'started_time' => $startedTime,
-            'end_time'     => $endTime
+        $userId = auth()->guard('user')->id();
+        $studies = Study::all();
+        $monthly = Date::fetchEveryWeekOfLastMonthFromToday();
+        $weekDays = Date::fetchUsersWeekData($userId);
+        $monthlyStudyData = $this->organizedData($studies, $monthly);
+        $data = [];
+        //一週間分の勉強時間を取得し配列に結合している Chart用のデータ
+        foreach ($weekDays as $weekDay) {
+            $data['weekData'][$weekDay] = 0;
+            foreach ($monthlyStudyData['weekStudies'] as $weekStudy) {
+                if ($weekDay === $weekStudy->study_dt) {
+                    $data['weekData'][$weekDay] = $weekStudy['study_hour'];
+                }
+            }
+        }
+        return [$data, $monthlyStudyData['monthlyStudies']];
+    }
+
+    public function organizedData($studies, $monthly)
+    {
+        $weekStudies = $studies->whereBetween('study_dt', [$monthly['one_week_ago'], $monthly['today']]);
+        $monthlyStudies = $studies->whereBetween('study_dt', [$monthly['four_weeks_ago'], $monthly['today']]);
+
+       $monthTotalHours = $monthlyStudies->sum(function($study) {
+           return ($study->study_hour);
+
+        });
+        $monthlyStudyData = [
+            'weekStudies'    => $weekStudies,
+            'monthlyStudies' => $monthTotalHours,
         ];
-        return $studyDt;
+
+        return $monthlyStudyData;
     }
 
     public function fetchTodaysRecord()
     {
         $today = new Carbon('today');
         $userId = auth()->guard('web')->id();
-        return Study::where('user_id', $userId)->where('study_dt', '=', $today )->get();
+        return Study::where('user_id', $userId)->where('study_dt', '=', $today)->get();
     }
 }

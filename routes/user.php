@@ -15,6 +15,7 @@ Route::middleware('auth:user')->name('user.')->namespace('Auth')->group(function
     Route::name('study.')->prefix('study')->group(function() {
        Route::post('create_record', 'StudyController@createRecord')->name('create_record');
         Route::get('mypage_study', 'StudyController@showMypageStudy')->name('mypage_study');
+        Route::get('register_record', 'StudyController@showRegisterForm')->name('register_form');
         Route::get('study_axios', 'StudyController@getStudyAxios');
     });
 });
