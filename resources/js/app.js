@@ -13,6 +13,8 @@ import TodaysRecord from "./components/TodaysRecord";
 import StudyTable from "./components/StudyTable";
 import MonthlyChart from "./components/MonthlyChartComponent";
 import VueTimepicker from 'vue2-timepicker/src/vue-timepicker.vue';
+import ModalForm from './components/ModalFormComponent.vue';
+import TargetTime from "./components/TargetTimeComponent";
 
 const app = new Vue({
     el: '#app',
@@ -21,7 +23,9 @@ const app = new Vue({
         MeditationSet,
         StudyTable,
         TodaysRecord,
+        TargetTime,
         MonthlyChart,
         VueTimepicker,
+        ModalForm,
     }
 });

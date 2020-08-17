@@ -40,12 +40,15 @@ class Date
      * @param $monthly
      * @return array
      */
-    public static function fetchMonthlyDataCount($instance, $monthly) {
+    public static function fetchMonthlyDataCount($instance, $monthly)
+    {
 
         $oneWeekAgo = $instance->whereBetween('created_at', [$monthly['one_week_ago'], $monthly['today']]);
         $twoWeeksAgo = $instance->whereBetween('created_at', [$monthly['two_weeks_ago'], $monthly['one_week_ago']]);
-        $threeWeeksAgo = $instance->whereBetween('created_at', [$monthly['three_weeks_ago'], $monthly['two_weeks_ago']]);
-        $fourWeeksAgo = $instance->whereBetween('created_at', [$monthly['four_weeks_ago'], $monthly['three_weeks_ago']]);
+        $threeWeeksAgo = $instance->whereBetween('created_at',
+            [$monthly['three_weeks_ago'], $monthly['two_weeks_ago']]);
+        $fourWeeksAgo = $instance->whereBetween('created_at',
+            [$monthly['four_weeks_ago'], $monthly['three_weeks_ago']]);
         //今月の作成、登録されたデータの週ごとのカウント
         $dataCount = [
             count($fourWeeksAgo),
@@ -63,7 +66,7 @@ class Date
         $splitIntoHourAndMinutes = explode(':', $data['study_time']);
 
         $time = [
-            'study_hour' => $splitIntoHourAndMinutes[0],
+            'study_hour'    => $splitIntoHourAndMinutes[0],
             'study_minutes' => $splitIntoHourAndMinutes[1],
         ];
         return $time;
@@ -73,14 +76,25 @@ class Date
     {
         $weekDays = [];
         $day = 0;
-        for ($i = 0; $i < self::ONE_WEEK; $i ++) {
+        for ($i = 0; $i < self::ONE_WEEK; $i++) {
             $weekDays[] = Carbon::today()->subDay($day)->toDateString();
-            $day ++;
+            $day++;
         }
         return $weekDays;
     }
 
+    //各引数のそれぞれ7日前,14日前,21日前,28日前の日付が入る
+    public static function compareWeekBetween($weekFirst, $weekSecond, $instance)
+    {
+        return $instance->whereBetween('study_dt', [$weekSecond, $weekFirst])->get();
+    }
 
+    public static function startToEndOfWeek()
+    {
+        $startDayOfWeek = Carbon::today()->startOfWeek()->toDateString();
+        $endDayOfWeek = Carbon::today()->endOfWeek()->toDateString();
+        return ['first_day_of_week' => $startDayOfWeek, 'end_day_on_week' => $endDayOfWeek];
+    }
 
 }
 

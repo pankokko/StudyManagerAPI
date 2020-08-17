@@ -52,4 +52,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Study::class);
     }
+
+    public function WeeklyTargets()
+    {
+        return $this->hasMany(WeeklyTarget::class);
+    }
 }

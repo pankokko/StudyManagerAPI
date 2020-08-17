@@ -3,8 +3,6 @@
         <!--        <div class="container w-50 h-50">-->
         <div class="card-header">
             <h4 class="my-0 font-weight-normal">瞑想チャート</h4>
-
-
         </div>
         <MeditationChart :week-time="times"></MeditationChart>
         <!--        </div>-->
@@ -32,8 +30,7 @@
         },
         created() {
             console.log(this.timeMonth);
-
-        }
+        },
     }
 
 </script>

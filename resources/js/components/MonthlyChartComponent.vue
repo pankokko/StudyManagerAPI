@@ -16,7 +16,7 @@
                     labels: [],
                     datasets: [
                         {
-                            label: '勉強時間',
+                            label: '勉強時間: Hour',
                             data: [],
                             backgroundColor: [
                                 'rgba(255, 99, 132, 0.2)',
@@ -58,9 +58,12 @@
         },
         mounted() {
             var Studies = JSON.parse(this.studyRecords);
-            console.log(Studies.weekData);
             this.data.labels.push(...(Object.keys(Studies.weekData)));
-            this.data.datasets[0].data.push(...(Object.values(Studies.weekData)));
+            var array = [];
+            Object.values(Studies.weekData).forEach(function (value) {
+                array.push(value);
+            });
+            this.data.datasets[0].data.push(...(array));
             this.renderChart(this.data, this.options)
         }
     }
