@@ -2,12 +2,11 @@
     <div class="card mb-4 box-shadow mypage-study-card">
         <div class="card-header">
             <h4 class="my-0 font-weight-normal">今週の目標時間</h4>
-            <h5 class="my-0 font-weight-normal">目標 {{weekly.targetHour}}時間</h5>
-            <h5 class="my-0 font-weight-normal">現在 {{weekTotalTime.weekTotalSoFar}}時間</h5>
-            <p class="my-0 font-weight-normal">先週との差分　</p>
+            <h5 class="my-0 font-weight-normal">目標 {{weekly.targetHour}}時間{{weekly.targetMinutes}}分</h5>
+            <h5 class="my-0 font-weight-normal">現在 {{weekTotalTime.weekTotalHourSoFar}}時間{{weekTotalTime.weekTotalMinutesSoFar}}分</h5>
         </div>
         <div class="card-body">
-            <target-time-chart :height=200></target-time-chart>
+            <target-time-chart :target-time="weeklyTarget"  :actual-time="weekTotal" :height=200></target-time-chart>
         </div>
     </div>
 </template>
@@ -25,9 +24,12 @@
             return {
                 weekly: {
                     targetHour: '',
+                    targetMinutes: '',
                 },
                 weekTotalTime: {
-                    weekTotalSoFar: '',
+                    weekTotalHourSoFar: '',
+                    weekTotalMinutesSoFar: '',
+
                 }
             }
         },
@@ -40,8 +42,10 @@
             }
         },
         created() {
-                  this.weekly.targetHour = this.parseWeeklyTarget[0].target_hour;
-                  this.weekTotalTime.weekTotalSoFar = this.parseWeekTotal;
+            this.weekly.targetHour = this.parseWeeklyTarget[0].target_hour;
+            this.weekly.targetMinutes = this.parseWeeklyTarget[0].target_minutes;
+            this.weekTotalTime.weekTotalHourSoFar = this.parseWeekTotal.study_hour;
+            this.weekTotalTime.weekTotalMinutesSoFar = this.parseWeekTotal.study_minutes;
         },
     }
 </script>

@@ -53,21 +53,20 @@ class StudyController extends Controller
         [$weeklyStudies, $studyData] = $this->studyService->fetchMonthlyRecords();
         $studyToday = $this->studyService->fetchTodaysRecord();
         $weeklyTargetJson = json_encode($this->weeklyTargetService->fetchWeeklyTarget());
-
         $studiesJson = json_encode($weeklyStudies);
         $weekTotalTimeJson = json_encode($studyData['weekStudies']);
-        return view('user.mypage_study', compact('studiesJson', 'studyData', 'studyToday', 'weeklyTargetJson', 'weekTotalTimeJson'));
+        return view('user.mypage_study',
+            compact('studiesJson', 'studyData', 'studyToday', 'weeklyTargetJson', 'weekTotalTimeJson'));
     }
 
     public function showRegisterForm()
     {
-        $today = Carbon::now()->toDateString();
-        return view('study.register_form', compact('today'));
+        return view('study.register_form')->with('today', Carbon::now()->toDateString());
     }
 
     public function showAllRecords()
     {
-        $userId = auth()->guard()->id();
+        $userId = auth()->guard('user')->id();
         $userRecords = $this->studyService->fetchUsersAllStudyRecords($userId);
         return view('study.index_study_records', compact('userRecords'));
     }
@@ -78,10 +77,10 @@ class StudyController extends Controller
         return view('study.show', compact('record'));
     }
 
-    public function editRecord(Request $request, $id)
-    {
-        return view('study.edit', compact('record', 'today'));
-    }
+//    public function editRecord(Request $request, $id)
+//    {
+//        return view('study.edit', compact('record', 'today'));
+//    }
 
     public function getStudyAxios()
     {

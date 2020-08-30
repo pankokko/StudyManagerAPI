@@ -9,6 +9,12 @@
         <h1 class="display-4"><a href="{{route('user.study.register_form')}}">今日のレコードを登録する</a></h1>
     </div>
     @include('components.flash')
+    @if($errors->has('study_time'))
+        <div class="alert alert-danger alert-block">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <strong>{{$errors->first('study_time')}}</strong>
+        </div>
+    @endif
     <div class="container">
         <div class="card-deck mb-3 text-center">
             <div class="card mb-4 box-shadow mypage-study-card">
@@ -31,7 +37,8 @@
                     <ul class="list-unstyled mt-3 mb-4">
                         <li class="h4 font-weight-bold">今週の勉強時間</li>
                     </ul>
-                    <h1 class="card-title pricing-card-title">{{$studyData['weekStudies']}}時間 <small class="text-muted">/
+                    <h1 class="card-title pricing-card-title">{{$studyData['weekStudies']['study_hour']}}
+                        時間 {{$studyData['weekStudies']['study_minutes']}} <small class="text-muted">/
                             今週</small></h1>
                 </div>
             </div>

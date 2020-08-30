@@ -54,33 +54,17 @@ class StudyService
 
     public function fetchMonthlyRecords()
     {
-
-        $userId = auth()->guard('user')->id();
-        $studies = Study::all();
+        $userStudies = User::find(auth()->guard('user')->id())->studies;
         $monthly = Date::fetchEveryWeekOfLastMonthFromToday();
-        $weekDays = Date::fetchUsersWeekData($userId);
 
-        $studyData = $this->organizedData($studies, $monthly);
-
+        $studyData = $this->calculateStudyHours($userStudies, $monthly);
         $data = [];
-        //一週間分の勉強時間を取得し配列に結合している Chart用のデータ
-        foreach ($weekDays as $weekDay) {
-            $data['weekData'][$weekDay] = 0;
-            foreach ($studyData['weekStudies'] as $weekStudy) {
-                if ($weekDay === $weekStudy->study_dt) {
-                    $data['weekData'][$weekDay] = $weekStudy['study_hour'];
-                }
-            }
-        }
-
-        $studyData['weekStudies'] = $studyData['weekStudies']->sum(function ($studyDay) {
-            return ($eachDayHour = $studyDay->study_hour);
-        });
-
+        $data = $this->fetchEachDayStudyHours($data,
+            $userStudies->whereBetween('study_dt', [$monthly['one_week_ago'], $monthly['today']]));
         return [$data, $studyData];
     }
 
-    public function organizedData($studies, $monthly)
+    public function calculateStudyHours($studies, $monthly)
     {
         $weekStudies = $studies->whereBetween('study_dt', [$monthly['one_week_ago'], $monthly['today']]);
         $monthlyStudies = $studies->whereBetween('study_dt', [$monthly['four_weeks_ago'], $monthly['today']]);
@@ -93,8 +77,19 @@ class StudyService
             return ($total = $study->study_hour);
         });
 
+        $weeklyStudyHour = $weekStudies->sum(function ($study) {
+            return $study->study_hour;
+        });
+
+        $weeklyStudyMinutes = $weekStudies->sum(function ($study) {
+            return $study->study_minutes;
+        });
+
         $studyData = [
-            'weekStudies'    => $weekStudies,
+            'weekStudies'    => [
+                'study_hour'    => $weeklyStudyHour,
+                'study_minutes' => $weeklyStudyMinutes,
+            ],
             'monthlyStudies' => $monthTotalHours,
             'recordCount'    => count($studies),
             'totalStudyTime' => $totalStudyTime,
@@ -111,5 +106,27 @@ class StudyService
             return false;
         }
         return true;
+    }
+
+    /**
+     * @param $weekDays
+     * @param array $data
+     * @param $weekStudies
+     * @return array
+     */
+    public function fetchEachDayStudyHours(array $data, $weekStudies): array
+    {
+        $weekDays = Date::fetchDaysOfThisWeek();
+
+        //一週間分の勉強時間を取得し配列に結合している Chart用のデータ
+        foreach ($weekDays as $weekDay) {
+            $data['weekData'][$weekDay] = 0;
+            foreach ($weekStudies as $weekStudy) {
+                if ($weekDay === $weekStudy->study_dt) {
+                    $data['weekData'][$weekDay] = $weekStudy['study_hour'];
+                }
+            }
+        }
+        return $data;
     }
 }

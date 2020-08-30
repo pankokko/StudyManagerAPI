@@ -72,7 +72,7 @@ class Date
         return $time;
     }
 
-    public static function fetchUsersWeekData($userId)
+    public static function fetchDaysOfThisWeek()
     {
         $weekDays = [];
         $day = 0;

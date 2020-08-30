@@ -11,7 +11,7 @@
             <label for="exampleFormControlTextarea1">勉強の要点</label>
             <textarea name="study_content" class="form-control" id="exampleFormControlTextarea1" rows="3" readonly>{{$record->study_content}}</textarea>
         </div>
-        <a class="btn btn-primary" href="{{route('user.study.edit', ['id' => $record->id])}}" role="button">編集</a>
+        <a class="btn btn-primary" href="#" role="button">編集</a>
         <form action="{{route('user.study.delete_Record', ['id' => $record->id])}}" method="POST">
             @csrf
             <button class="btn btn-primary" type="submit">削除</button>
