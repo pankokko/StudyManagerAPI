@@ -1,2 +1,5 @@
 *
 !.gitignore
+public/js
+.DS_STORE
+.idea/
