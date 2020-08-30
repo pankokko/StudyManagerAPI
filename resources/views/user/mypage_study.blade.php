@@ -38,7 +38,7 @@
                         <li class="h4 font-weight-bold">今週の勉強時間</li>
                     </ul>
                     <h1 class="card-title pricing-card-title">{{$studyData['weekStudies']['study_hour']}}
-                        時間 {{$studyData['weekStudies']['study_minutes']}} <small class="text-muted">/
+                        時間 {{$studyData['weekStudies']['study_minutes']}}分<small class="text-muted">/
                             今週</small></h1>
                 </div>
             </div>
@@ -82,43 +82,7 @@
                 </div>
             </div>
         </div>
-        <target-time weekly-target={{$weeklyTargetJson}} week-total={{$weekTotalTimeJson}}></target-time>
-        <div class="card-body text-center">
-            <h3 class="card-title pricing-card-title">今週の目標時間を設定する</h3>
-            <div>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
-                        data-whatever="@mdo">今週の目標を設定する
-                </button>
-                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-                     aria-labelledby="exampleModalLabel"
-                     aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">目標設定</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <form action="{{route('user.weekly_target.set_target')}}" method="POST">
-                                    @csrf
-                                    <div class="form-group">
-                                        <label><i class="far fa-clock"></i>今週の目標時間は？</label>
-                                        <vue-timepicker format="H:m" name="study_time" placeholder="時間を入力"
-                                                        hour-label="時間" minute-label="分"></vue-timepicker>
-                                    </div>
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
-                                    <button type="submit" id="submitTarget" class="btn btn-primary">設定する</button>
-                                </form>
-                            </div>
-                            <div class="modal-footer">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <target-time weekly-target={{$weeklyTargetJson}} week-total={{$weekTotalTimeJson}} csrf="{{ csrf_token() }}"></target-time>
     </div>
     </div>
 @endsection

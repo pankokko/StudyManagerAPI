@@ -61,6 +61,7 @@ class StudyService
         $data = [];
         $data = $this->fetchEachDayStudyHours($data,
             $userStudies->whereBetween('study_dt', [$monthly['one_week_ago'], $monthly['today']]));
+        ksort($data['weekData']);
         return [$data, $studyData];
     }
 
