@@ -2577,7 +2577,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       datas: {
         // 凡例とツールチップに表示するラベル
-        labels: ['現在の勉強時間時間', '今週の目標時間'],
+        labels: ['今週の合計勉強時間', '今週の目標時間'],
         // 表示するデータ
         datasets: [{
           data: [],
@@ -2658,7 +2658,48 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _TargetTimeChartComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TargetTimeChartComponent */ "./resources/js/components/TargetTimeChartComponent.vue");
+/* harmony import */ var vue2_timepicker_src_vue_timepicker_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue2-timepicker/src/vue-timepicker.vue */ "./node_modules/vue2-timepicker/src/vue-timepicker.vue");
+/* harmony import */ var _TargetTimeChartComponent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TargetTimeChartComponent */ "./resources/js/components/TargetTimeChartComponent.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2673,11 +2714,26 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    TargetTimeChart: _TargetTimeChartComponent__WEBPACK_IMPORTED_MODULE_0__["default"]
+    TargetTimeChart: _TargetTimeChartComponent__WEBPACK_IMPORTED_MODULE_1__["default"],
+    VueTimepicker: vue2_timepicker_src_vue_timepicker_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
-  props: ['weeklyTarget', 'weekTotal'],
+  props: {
+    weeklyTarget: {
+      type: String,
+      required: true
+    },
+    weekTotal: {
+      type: String,
+      required: true
+    },
+    csrf: {
+      type: String,
+      required: true
+    }
+  },
   data: function data() {
     return {
       weekly: {
@@ -2687,7 +2743,8 @@ __webpack_require__.r(__webpack_exports__);
       weekTotalTime: {
         weekTotalHourSoFar: '',
         weekTotalMinutesSoFar: ''
-      }
+      },
+      display: true
     };
   },
   computed: {
@@ -2698,7 +2755,15 @@ __webpack_require__.r(__webpack_exports__);
       return JSON.parse(this.weekTotal);
     }
   },
+  methods: {
+    isTargetExists: function isTargetExists(parseWeeklyTarget) {
+      if (parseWeeklyTarget[0].id) {
+        return this.display = false;
+      }
+    }
+  },
   created: function created() {
+    this.isTargetExists(this.parseWeeklyTarget);
     this.weekly.targetHour = this.parseWeeklyTarget[0].target_hour;
     this.weekly.targetMinutes = this.parseWeeklyTarget[0].target_minutes;
     this.weekTotalTime.weekTotalHourSoFar = this.parseWeekTotal.study_hour;
@@ -80273,7 +80338,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "card mb-4 box-shadow mypage-study-card" }, [
+  return _c("div", { staticClass: "card mb-2 box-shadow mypage-study-card" }, [
     _c("div", { staticClass: "card-header" }, [
       _c("h4", { staticClass: "my-0 font-weight-normal" }, [
         _vm._v("今週の目標時間")
@@ -80291,7 +80356,7 @@ var render = function() {
       _vm._v(" "),
       _c("h5", { staticClass: "my-0 font-weight-normal" }, [
         _vm._v(
-          "現在 " +
+          "現在\n            " +
             _vm._s(_vm.weekTotalTime.weekTotalHourSoFar) +
             "時間" +
             _vm._s(_vm.weekTotalTime.weekTotalMinutesSoFar) +
@@ -80299,6 +80364,115 @@ var render = function() {
         )
       ])
     ]),
+    _vm._v(" "),
+    _vm.display
+      ? _c("div", { staticClass: "card-body text-center" }, [
+          _c("h3", { staticClass: "card-title pricing-card-title" }, [
+            _vm._v("今週の目標時間を設定する")
+          ]),
+          _vm._v(" "),
+          _c("div", [
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-primary",
+                attrs: {
+                  type: "button",
+                  "data-toggle": "modal",
+                  "data-target": "#exampleModal",
+                  "data-whatever": "@mdo"
+                }
+              },
+              [_vm._v("今週の目標を設定する\n            ")]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "modal fade",
+                attrs: {
+                  id: "exampleModal",
+                  tabindex: "-1",
+                  role: "dialog",
+                  "aria-labelledby": "exampleModalLabel",
+                  "aria-hidden": "true"
+                }
+              },
+              [
+                _c(
+                  "div",
+                  { staticClass: "modal-dialog", attrs: { role: "document" } },
+                  [
+                    _c("div", { staticClass: "modal-content" }, [
+                      _vm._m(0),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "modal-body" }, [
+                        _c(
+                          "form",
+                          {
+                            attrs: {
+                              action: "/user/weekly_target/set_target",
+                              method: "POST"
+                            }
+                          },
+                          [
+                            _c("input", {
+                              attrs: { type: "hidden", name: "_token" },
+                              domProps: { value: _vm.csrf }
+                            }),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              { staticClass: "form-group" },
+                              [
+                                _vm._m(1),
+                                _vm._v(" "),
+                                _c("vue-timepicker", {
+                                  attrs: {
+                                    format: "H:m",
+                                    name: "study_time",
+                                    placeholder: "時間を入力",
+                                    "hour-label": "時間",
+                                    "minute-label": "分"
+                                  }
+                                })
+                              ],
+                              1
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "button",
+                              {
+                                staticClass: "btn btn-secondary",
+                                attrs: {
+                                  type: "button",
+                                  "data-dismiss": "modal"
+                                }
+                              },
+                              [_vm._v("閉じる")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "button",
+                              {
+                                staticClass: "btn btn-primary",
+                                attrs: { type: "submit", id: "submitTarget" }
+                              },
+                              [_vm._v("設定する")]
+                            )
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "modal-footer" })
+                    ])
+                  ]
+                )
+              ]
+            )
+          ])
+        ])
+      : _vm._e(),
     _vm._v(" "),
     _c(
       "div",
@@ -80316,7 +80490,42 @@ var render = function() {
     )
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
+        [_vm._v("目標設定")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "modal",
+            "aria-label": "Close"
+          }
+        },
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _c("i", { staticClass: "far fa-clock" }),
+      _vm._v("今週の目標時間は？")
+    ])
+  }
+]
 render._withStripped = true
 
 

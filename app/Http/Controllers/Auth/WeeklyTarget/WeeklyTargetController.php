@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth\WeeklyTarget;
 
 use App\Service\WeeklyTargetService;
 use App\Http\Requests\WeeklyTargetRequest;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class WeeklyTargetController extends Controller
@@ -17,6 +18,7 @@ class WeeklyTargetController extends Controller
 
     public function setTargetTime(WeeklyTargetRequest $request)
     {
+
         $target = $this->weeklyTarget->storeTargetTime($request->input('study_time'), auth()->guard('user')->id());
 
         if (is_null($target)) {

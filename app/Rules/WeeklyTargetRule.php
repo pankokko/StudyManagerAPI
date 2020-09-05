@@ -17,13 +17,11 @@ class WeeklyTargetRule implements Rule
 
     public function passes($attribute, $value)
     {
-        if (WeeklyTarget::where(
+            return WeeklyTarget::where(
             [
                 'user_id'     => $this->userId,
                 'started_day' => Carbon::today()->startOfWeek()->toDateString()
-            ])->exists()) {
-            return false;
-        }
+            ])->count() === 0;
     }
 
     public function message()
